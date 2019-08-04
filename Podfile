@@ -16,11 +16,8 @@ target 'github-bests' do
     pod 'Cuckoo'
     pod 'Quick'
     pod 'Nimble'
-  end
-
-  target 'github-bestsUITests' do
-    inherit! :search_paths
-    # Pods for testing
+    pod 'KIF'
+    pod 'iOSSnapshotTestCase'
   end
 
 end
