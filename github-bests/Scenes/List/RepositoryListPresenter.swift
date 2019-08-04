@@ -14,7 +14,7 @@ import UIKit
 
 protocol RepositoryListPresentationLogic {
     func presentList()
-    func presentError(error: Error, tryAgainAction: (()->())?)
+    func presentError(error: Error)
     func presentLoading(screen: Bool)
     func stopLoading(screen: Bool)
 }
@@ -26,8 +26,8 @@ class RepositoryListPresenter: RepositoryListPresentationLogic {
         viewController?.displayList()
     }
     
-    func presentError(error: Error, tryAgainAction: (()->())?) {
-        viewController?.showError(title: nil, message: error.localizedDescription, tryAgainAction: tryAgainAction)
+    func presentError(error: Error) {
+        viewController?.showError(title: nil, message: error.localizedDescription)
     }
     
     func presentLoading(screen: Bool) {

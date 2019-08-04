@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListInteractor.swift at 2019-08-04 01:42:56 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListInteractor.swift at 2019-08-04 15:55:46 +0000
 
 //
 //  RepositoryListInteractor.swift
@@ -434,7 +434,7 @@ import UIKit
 }
 
 
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListPresenter.swift at 2019-08-04 01:42:56 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListPresenter.swift at 2019-08-04 15:55:46 +0000
 
 //
 //  RepositoryListPresenter.swift
@@ -493,16 +493,16 @@ import UIKit
     
     
     
-     func presentError(error: Error, tryAgainAction: (()->())?)  {
+     func presentError(error: Error)  {
         
-    return cuckoo_manager.call("presentError(error: Error, tryAgainAction: (()->())?)",
-            parameters: (error, tryAgainAction),
-            escapingParameters: (error, tryAgainAction),
+    return cuckoo_manager.call("presentError(error: Error)",
+            parameters: (error),
+            escapingParameters: (error),
             superclassCall:
                 
                 Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                 ,
-            defaultCall: __defaultImplStub!.presentError(error: error, tryAgainAction: tryAgainAction))
+            defaultCall: __defaultImplStub!.presentError(error: error))
         
     }
     
@@ -550,9 +550,9 @@ import UIKit
 	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListPresentationLogic.self, method: "presentList()", parameterMatchers: matchers))
 	    }
 	    
-	    func presentError<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(error: M1, tryAgainAction: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(Error, (()->())?)> where M1.MatchedType == Error, M2.OptionalMatchedType == (()->()) {
-	        let matchers: [Cuckoo.ParameterMatcher<(Error, (()->())?)>] = [wrap(matchable: error) { $0.0 }, wrap(matchable: tryAgainAction) { $0.1 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListPresentationLogic.self, method: "presentError(error: Error, tryAgainAction: (()->())?)", parameterMatchers: matchers))
+	    func presentError<M1: Cuckoo.Matchable>(error: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(Error)> where M1.MatchedType == Error {
+	        let matchers: [Cuckoo.ParameterMatcher<(Error)>] = [wrap(matchable: error) { $0 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListPresentationLogic.self, method: "presentError(error: Error)", parameterMatchers: matchers))
 	    }
 	    
 	    func presentLoading<M1: Cuckoo.Matchable>(screen: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(Bool)> where M1.MatchedType == Bool {
@@ -588,9 +588,9 @@ import UIKit
 	    }
 	    
 	    @discardableResult
-	    func presentError<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(error: M1, tryAgainAction: M2) -> Cuckoo.__DoNotUse<(Error, (()->())?), Void> where M1.MatchedType == Error, M2.OptionalMatchedType == (()->()) {
-	        let matchers: [Cuckoo.ParameterMatcher<(Error, (()->())?)>] = [wrap(matchable: error) { $0.0 }, wrap(matchable: tryAgainAction) { $0.1 }]
-	        return cuckoo_manager.verify("presentError(error: Error, tryAgainAction: (()->())?)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    func presentError<M1: Cuckoo.Matchable>(error: M1) -> Cuckoo.__DoNotUse<(Error), Void> where M1.MatchedType == Error {
+	        let matchers: [Cuckoo.ParameterMatcher<(Error)>] = [wrap(matchable: error) { $0 }]
+	        return cuckoo_manager.verify("presentError(error: Error)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
 	    @discardableResult
@@ -618,7 +618,7 @@ import UIKit
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
-     func presentError(error: Error, tryAgainAction: (()->())?)   {
+     func presentError(error: Error)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -698,16 +698,16 @@ import UIKit
     
     
     
-     override func presentError(error: Error, tryAgainAction: (()->())?)  {
+     override func presentError(error: Error)  {
         
-    return cuckoo_manager.call("presentError(error: Error, tryAgainAction: (()->())?)",
-            parameters: (error, tryAgainAction),
-            escapingParameters: (error, tryAgainAction),
+    return cuckoo_manager.call("presentError(error: Error)",
+            parameters: (error),
+            escapingParameters: (error),
             superclassCall:
                 
-                super.presentError(error: error, tryAgainAction: tryAgainAction)
+                super.presentError(error: error)
                 ,
-            defaultCall: __defaultImplStub!.presentError(error: error, tryAgainAction: tryAgainAction))
+            defaultCall: __defaultImplStub!.presentError(error: error))
         
     }
     
@@ -760,9 +760,9 @@ import UIKit
 	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListPresenter.self, method: "presentList()", parameterMatchers: matchers))
 	    }
 	    
-	    func presentError<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(error: M1, tryAgainAction: M2) -> Cuckoo.ClassStubNoReturnFunction<(Error, (()->())?)> where M1.MatchedType == Error, M2.OptionalMatchedType == (()->()) {
-	        let matchers: [Cuckoo.ParameterMatcher<(Error, (()->())?)>] = [wrap(matchable: error) { $0.0 }, wrap(matchable: tryAgainAction) { $0.1 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListPresenter.self, method: "presentError(error: Error, tryAgainAction: (()->())?)", parameterMatchers: matchers))
+	    func presentError<M1: Cuckoo.Matchable>(error: M1) -> Cuckoo.ClassStubNoReturnFunction<(Error)> where M1.MatchedType == Error {
+	        let matchers: [Cuckoo.ParameterMatcher<(Error)>] = [wrap(matchable: error) { $0 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListPresenter.self, method: "presentError(error: Error)", parameterMatchers: matchers))
 	    }
 	    
 	    func presentLoading<M1: Cuckoo.Matchable>(screen: M1) -> Cuckoo.ClassStubNoReturnFunction<(Bool)> where M1.MatchedType == Bool {
@@ -803,9 +803,9 @@ import UIKit
 	    }
 	    
 	    @discardableResult
-	    func presentError<M1: Cuckoo.Matchable, M2: Cuckoo.OptionalMatchable>(error: M1, tryAgainAction: M2) -> Cuckoo.__DoNotUse<(Error, (()->())?), Void> where M1.MatchedType == Error, M2.OptionalMatchedType == (()->()) {
-	        let matchers: [Cuckoo.ParameterMatcher<(Error, (()->())?)>] = [wrap(matchable: error) { $0.0 }, wrap(matchable: tryAgainAction) { $0.1 }]
-	        return cuckoo_manager.verify("presentError(error: Error, tryAgainAction: (()->())?)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    func presentError<M1: Cuckoo.Matchable>(error: M1) -> Cuckoo.__DoNotUse<(Error), Void> where M1.MatchedType == Error {
+	        let matchers: [Cuckoo.ParameterMatcher<(Error)>] = [wrap(matchable: error) { $0 }]
+	        return cuckoo_manager.verify("presentError(error: Error)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
 	    @discardableResult
@@ -843,7 +843,7 @@ import UIKit
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
-     override func presentError(error: Error, tryAgainAction: (()->())?)   {
+     override func presentError(error: Error)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -858,7 +858,7 @@ import UIKit
 }
 
 
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListWorker.swift at 2019-08-04 01:42:56 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListWorker.swift at 2019-08-04 15:55:46 +0000
 
 //
 //  RepositoryListWorker.swift

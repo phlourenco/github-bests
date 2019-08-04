@@ -29,7 +29,6 @@ class RepositoryListInteractor: RepositoryListBusinessLogic {
     // MARK: - Private properties
     
     private let itemsPerPage = 20
-    private var tryAgainCount = 0
     
     // MARK: - Constructors
     
@@ -71,13 +70,7 @@ class RepositoryListInteractor: RepositoryListBusinessLogic {
     }
     
     private func handleError(_ error: Error) {
-        let tryAgain = tryAgainCount < 3 ? self.tryAgain : nil
-        presenter?.presentError(error: error, tryAgainAction: tryAgain)
-    }
-    
-    private func tryAgain() {
-        tryAgainCount+=1
-        fetchRepositories(next: true)
+        presenter?.presentError(error: error)
     }
     
     private func getNextPageNumber() -> Int {
