@@ -9,7 +9,7 @@ target 'github-bests' do
   pod 'Alamofire', '~> 4.7'
   pod 'SDWebImage'
   pod 'PromiseKit'
-
+  pod 'OHHTTPStubs/Swift'
 
   target 'github-bestsTests' do
     inherit! :search_paths
@@ -19,17 +19,6 @@ target 'github-bests' do
     pod 'Nimble'
     pod 'KIF'
     pod 'iOSSnapshotTestCase'
-  end
-  
-  
-  target 'github-bestsIntegrationTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'Quick'
-    pod 'Nimble'
-    pod 'KIF'
-    pod 'iOSSnapshotTestCase'
-    pod 'Swifter', '~> 1.4.7'
   end
 
 end

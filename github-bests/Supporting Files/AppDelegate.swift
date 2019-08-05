@@ -7,49 +7,63 @@
 //
 
 import UIKit
+import OHHTTPStubs
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+//    private func stubRequestsIfNeeded() {
+//        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+//            print("TESTANDOOOOOOOOW")
+//            stub(condition: { (request) -> Bool in
+//                if let url = request.url?.absoluteString, url.contains("github.com"), url.contains("&page=1") {
+//                    return true
+//                }
+//                return false
+//            }) { (request) -> OHHTTPStubsResponse in
+////                let stubPath = OHPathForFile("Mocks/page1.json", type(of: self))
+////                return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+//                return OHHTTPStubsResponse(data: Data(), statusCode: 404, headers: nil)
+//            }
+//        }
+//    }
     
-    private func serverPort() -> Int {
-        let deviceName = UIDevice.current.name
-        
-        if deviceName.contains("Clone") {
-            let range = deviceName.range(of: "Clone ")?.upperBound
-            let device = deviceName[range! ..< deviceName.index(after: range!)]
-            return 8080 + Int(device)!
+    private func stubAPICallsIfNeeded() {
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            stub(condition: { (request) -> Bool in
+                if let url = request.url?.absoluteString {
+                    if url.contains("github.com"), url.contains("?page=1") {
+                        return true
+                    }
+                    if url.contains("google-novo-logo.jpg") {
+                        return true
+                    }
+                }
+                return false
+            }) { (request) -> OHHTTPStubsResponse in
+                let repositories = SearchAPIMock().generateRepositories(count: 20)
+                let results = SearchResults<[Repository]>(totalCount: repositories.count, incompleteResults: false, items: repositories)
+
+                if let url = request.url?.absoluteString {
+                    if url.contains("github.com") {
+                        return OHHTTPStubsResponse(data: results.toData() ?? Data(), statusCode: 200, headers: nil)
+                    } else if url.contains("google-novo-logo") {
+                        let img = #imageLiteral(resourceName: "background")
+                        return OHHTTPStubsResponse(data: img.pngData() ?? Data(), statusCode: 200, headers: nil)
+                    }
+                }
+                return OHHTTPStubsResponse(data: Data(), statusCode: 404, headers: nil)
+            }
         }
-        
-        return 8080
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        
-//        let server = HttpServer()
-//        
-//        let port = serverPort()
-//        
-//        try! server.start(in_port_t(port))
-//            
-//        server["/"] = scopes {
-//            html {
-//                body {
-//                    center {
-//                        img { src = "https://swift.org/assets/images/swift.svg" }
-//                    }
-//                }
-//            }
-//        }
+//        stubRequestsIfNeeded()
 
-//        try! server.start(9080, forceIPv4: true)
-
-        
-        
+        stubAPICallsIfNeeded()
         return true
     }
 

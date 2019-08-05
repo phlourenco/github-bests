@@ -15,7 +15,7 @@ class SearchAPIMock: SearchAPIDataSource {
     func generateRepositories(count: Int) -> [Repository] {
         var repositories = [Repository]()
         for i in 0..<count {
-            repositories.append(Repository(name: "Repositório #\(i)", stargazersCount: 99999, owner: Owner(login: "fulano", avatarUrl: "https://google.com")))
+            repositories.append(Repository(name: "Repositório #\(i)", stargazersCount: 99999, owner: Owner(login: "fulano", avatarUrl: "https://assets.b9.com.br/wp-content/uploads/2014/05/google-novo-logo.jpg")))
         }
         return repositories
     }
