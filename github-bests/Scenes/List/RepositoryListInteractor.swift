@@ -40,16 +40,18 @@ class RepositoryListInteractor: RepositoryListBusinessLogic {
     
     func fetchRepositories(next: Bool) {
         let page = next ? getNextPageNumber() : 1
-        if !next {
-            repositoryList.removeAll()
-        }
     
         let isScreenLoading = !next
         presenter?.presentLoading(screen: isScreenLoading)
         
         let request = RepositoryList.Request(query: "language:swift", sort: "stars", page: page, itemsPerPage: itemsPerPage)
         worker.getRepositories(request: request)
-        .done(handleResults)
+        .done({ (results) in
+            if !next {
+                self.repositoryList.removeAll()
+            }
+            self.handleResults(results)
+        })
         .catch(handleError)
         .finally {
             self.presenter?.stopLoading(screen: isScreenLoading)

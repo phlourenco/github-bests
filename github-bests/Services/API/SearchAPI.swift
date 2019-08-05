@@ -19,7 +19,24 @@ class SearchAPI: SearchAPIDataSource {
             "per_page": itemsPerPage
         ]
         
-        return HTTPClient().request(url: "https://api.github.com/search/repositories", method: .get, parameters: params, headers: nil, parseAs: SearchResults<[Repository]>.self, keyDecodingStrategy: .convertFromSnakeCase)
+        
+//        var baseURL: String {
+//            get {
+//                if ProcessInfo.processInfo.arguments.contains("TESTING") {
+//                    return "http://localhost:8080"
+//                } else {
+//                    return "https://api.github.com"
+//                }
+//            }
+//        }
+        var baseURL = "https://api.github.com"
+        
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            baseURL = "http://localhost:8080"
+        }
+        
+        
+        return HTTPClient().request(url: "\(baseURL)/search/repositories", method: .get, parameters: params, headers: nil, parseAs: SearchResults<[Repository]>.self, keyDecodingStrategy: .convertFromSnakeCase)
     }
     
 }

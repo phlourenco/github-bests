@@ -1,0 +1,14 @@
+//
+//  config.xcconfig
+//  github-bestsTests
+//
+//  Created by Paulo Lourenço on 04/08/19.
+//  Copyright © 2019 Paulo Lourenço. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+server_url  = api.github.com
+timeout     = 120
+protocol    = https

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SearchResults<T: Decodable>: Decodable {
+public struct SearchResults<T: Codable>: Codable {
     var totalCount: Int
     var incompleteResults: Bool
     var items: T

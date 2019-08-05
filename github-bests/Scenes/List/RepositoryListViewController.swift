@@ -29,8 +29,19 @@ class RepositoryListViewController: UIViewController {
             tableView.dataSource = self
             tableView.register(RepositoryCell.self, forCellReuseIdentifier: "RepositoryCell")
             tableView.tableFooterView = UIView()
+//            tableView.refreshControl = refreshControl
+            tableView.addSubview(refreshControl)
+            tableView.accessibilityLabel = "tableView"
         }
     }
+    
+    // MARK: Private properties
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let ref = UIRefreshControl()
+        ref.addTarget(self, action: #selector(pullToRefreshAction), for: .valueChanged)
+        return ref
+    }()
     
     // MARK: Public properties
     
@@ -63,6 +74,18 @@ class RepositoryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        interactor?.fetchRepositories(next: false)
+    }
+    
+    // MARK: View lifecycle
+    
+    @objc
+    private func pullToRefreshAction() {
+//        tableView.reloadData()
         interactor?.fetchRepositories(next: false)
     }
 }
@@ -70,6 +93,7 @@ class RepositoryListViewController: UIViewController {
 extension RepositoryListViewController: RepositoryListDisplayLogic  {
     
     func displayList() {
+        refreshControl.endRefreshing()
         tableView.reloadData()
     }
     

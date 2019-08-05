@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListInteractor.swift at 2019-08-04 15:55:46 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListInteractor.swift at 2019-08-05 00:37:59 +0000
 
 //
 //  RepositoryListInteractor.swift
@@ -434,7 +434,7 @@ import UIKit
 }
 
 
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListPresenter.swift at 2019-08-04 15:55:46 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListPresenter.swift at 2019-08-05 00:37:59 +0000
 
 //
 //  RepositoryListPresenter.swift
@@ -858,7 +858,7 @@ import UIKit
 }
 
 
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListWorker.swift at 2019-08-04 15:55:46 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListWorker.swift at 2019-08-05 00:37:59 +0000
 
 //
 //  RepositoryListWorker.swift

@@ -13,9 +13,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    private func serverPort() -> Int {
+        let deviceName = UIDevice.current.name
+        
+        if deviceName.contains("Clone") {
+            let range = deviceName.range(of: "Clone ")?.upperBound
+            let device = deviceName[range! ..< deviceName.index(after: range!)]
+            return 8080 + Int(device)!
+        }
+        
+        return 8080
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+//        let server = HttpServer()
+//        
+//        let port = serverPort()
+//        
+//        try! server.start(in_port_t(port))
+//            
+//        server["/"] = scopes {
+//            html {
+//                body {
+//                    center {
+//                        img { src = "https://swift.org/assets/images/swift.svg" }
+//                    }
+//                }
+//            }
+//        }
+
+//        try! server.start(9080, forceIPv4: true)
+
+        
+        
         return true
     }
 

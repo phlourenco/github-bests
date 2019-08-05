@@ -30,7 +30,7 @@ class RepositoryListInteractorTests: QuickSpec {
                 let mockedWorker = RepositoryListWorker(dataSource: SearchAPIMock())
                 let mockedPresenter = MockRepositoryListPresenter()
 
-                stub(mockedPresenter) { (stub) in
+                Cuckoo.stub(mockedPresenter) { (stub) in
                     when(stub.presentList()).thenDoNothing()
                     when(stub.presentLoading(screen: any())).thenDoNothing()
                     when(stub.stopLoading(screen: any())).thenDoNothing()
@@ -61,7 +61,7 @@ class RepositoryListInteractorTests: QuickSpec {
                 let mockedPresenter = MockRepositoryListPresenter()
 
 
-                stub(mockedPresenter) { (stub) in
+                Cuckoo.stub(mockedPresenter) { (stub) in
                     when(stub.presentList()).thenDoNothing()
                     when(stub.presentLoading(screen: any())).thenDoNothing()
                     when(stub.stopLoading(screen: any())).thenDoNothing()
@@ -96,14 +96,14 @@ class RepositoryListInteractorTests: QuickSpec {
 
                 }
 
-                stub(mockedPresenter) { (stub) in
+                Cuckoo.stub(mockedPresenter) { (stub) in
                     when(stub.presentList()).thenDoNothing()
                     when(stub.presentLoading(screen: any())).thenDoNothing()
                     when(stub.stopLoading(screen: any())).thenDoNothing()
                     when(stub.presentError(error: any())).thenDoNothing()
                 }
 
-                stub(mockedWorker) { (stub) in
+                Cuckoo.stub(mockedWorker) { (stub) in
                     stub.getRepositories(request: any()).then({ (_) -> Promise<SearchResults<[Repository]>> in
                         return .init(error: HTTPClient.Errors.parseError)
                     })

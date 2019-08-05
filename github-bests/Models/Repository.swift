@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Repository: Decodable {
+struct Repository: Codable {
     var name: String
     var stargazersCount: Int
     var owner: Owner
 }
 
-struct Owner: Decodable {
+struct Owner: Codable {
     var login: String
     var avatarUrl: String
 }
