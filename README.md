@@ -25,7 +25,7 @@ Clean Swift (https://clean-swift.com/)
 Para requisições HTTP.
 
 #### SDWebImage (https://github.com/rs/SDWebImage)
-Para carregar imagens pela URL e gerenciamento de cache.
+Para carregar imagens e gerenciar cache.
 
 #### PromiseKit (https://github.com/mxcl/PromiseKit)
 Para trabalhar melhor com métodos assíncronos.
@@ -51,10 +51,10 @@ Para testes unitários.
 
 ## Instruções
 
-Dê `pod install` e abra o projeto pelo .xcworkspace.
+- Dê `pod install` e abra o projeto pelo .xcworkspace.
+- Os testes de snapshot foram gravados nos iPhones 8 e X, portanto, **rode o teste nesses devices/simuladores**.
+- Para rodar a lane com Slather: `fastlane custom_lane`
 
 ## Observações
 
-### Testes unitários e snapshot
-
-Os testes de snapshot foram gravados nos iPhones 8 e X, portanto, **rode o teste nesses devices/simuladores**.
+O stub das requisições HTTP está sendo feito na AppDelegate pois, pelo fato de o KIF rodar como teste unitário ao invés de teste de UI, não era possível stubar diretamente no `setUp()` dos testes, pois ao contrário dos testes de UI onde nós podemos executar o XCUIApplication a qualquer momento, no teste unitário a execução do app ocorre automaticamente e antes do `setUp()` de qualquer teste ser chamado, logo, o stub só ocorreria **APÓS** a chamada da API já ter sido feita.
