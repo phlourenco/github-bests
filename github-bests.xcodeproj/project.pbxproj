@@ -14,7 +14,6 @@
 		4B5AEA0122F8D28700EA48C9 /* StubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5AEA0022F8D28700EA48C9 /* StubManager.swift */; };
 		4B6457A422F7A0D300CF4BA9 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E2BA22F66FB200776D41 /* GeneratedMocks.swift */; };
 		4BA00F7922F75A8500F41FC5 /* KIF+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA00F7822F75A8500F41FC5 /* KIF+Swift.swift */; };
-		4BADA98F22F737B4009F1316 /* RepositoryCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BADA98E22F737B4009F1316 /* RepositoryCellTests.swift */; };
 		4BB4E2A722F5FC4900776D41 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E2A622F5FC4900776D41 /* HTTPClient.swift */; };
 		4BB4E2AB22F5FE1B00776D41 /* Data+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E2AA22F5FE1B00776D41 /* Data+Parse.swift */; };
 		4BB4E2AD22F5FFA100776D41 /* SearchAPIDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4E2AC22F5FFA100776D41 /* SearchAPIDataSource.swift */; };
@@ -61,7 +60,6 @@
 		4B5AE9FC22F8836100EA48C9 /* RepositoryListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewControllerTests.swift; sourceTree = "<group>"; };
 		4B5AEA0022F8D28700EA48C9 /* StubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubManager.swift; sourceTree = "<group>"; };
 		4BA00F7822F75A8500F41FC5 /* KIF+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+Swift.swift"; sourceTree = "<group>"; };
-		4BADA98E22F737B4009F1316 /* RepositoryCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellTests.swift; sourceTree = "<group>"; };
 		4BB4E2A622F5FC4900776D41 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4BB4E2AA22F5FE1B00776D41 /* Data+Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Parse.swift"; sourceTree = "<group>"; };
 		4BB4E2AC22F5FFA100776D41 /* SearchAPIDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIDataSource.swift; sourceTree = "<group>"; };
@@ -127,14 +125,6 @@
 				4B5AEA0022F8D28700EA48C9 /* StubManager.swift */,
 			);
 			path = TestUtils;
-			sourceTree = "<group>";
-		};
-		4BADA98D22F737A3009F1316 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				4BADA98E22F737B4009F1316 /* RepositoryCellTests.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		4BB4E2A322F5FBCA00776D41 /* Services */ = {
@@ -216,7 +206,6 @@
 		4BB4E2C022F6731000776D41 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				4BADA98D22F737A3009F1316 /* Cells */,
 				4BB4E2C222F6733300776D41 /* RepositoryListInteractorTests.swift */,
 				4BB4E2C622F72A0200776D41 /* RepositoryListPresenterTests.swift */,
 				4B5AE9FC22F8836100EA48C9 /* RepositoryListViewControllerTests.swift */,
@@ -613,7 +602,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BADA98F22F737B4009F1316 /* RepositoryCellTests.swift in Sources */,
 				4BB4E2C722F72A0200776D41 /* RepositoryListPresenterTests.swift in Sources */,
 				4BB4E2C322F6733300776D41 /* RepositoryListInteractorTests.swift in Sources */,
 				4B6457A422F7A0D300CF4BA9 /* GeneratedMocks.swift in Sources */,
@@ -777,6 +765,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8W67XPP2J;
 				INFOPLIST_FILE = "$(SRCROOT)/github-bests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -796,6 +785,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8W67XPP2J;
 				INFOPLIST_FILE = "$(SRCROOT)/github-bests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
