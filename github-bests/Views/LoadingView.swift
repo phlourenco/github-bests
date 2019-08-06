@@ -14,6 +14,7 @@ class LoadingView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        accessibilityIdentifier = "LoadingView"
         setup()
     }
     

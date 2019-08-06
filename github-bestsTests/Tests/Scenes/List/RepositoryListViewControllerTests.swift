@@ -6,28 +6,46 @@
 //  Copyright © 2019 Paulo Lourenço. All rights reserved.
 //
 
-import Foundation
 import FBSnapshotTestCase
-import Nimble
 @testable import github_bests
 
 class RepositoryListViewControllerTests: FBSnapshotTestCase {
     
-    override func setUp() {
-        super.setUp()
-        recordMode = true
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testFlow() {
-        if let tableView = tester().waitForView(withAccessibilityLabel: "tableView") as? UITableView {
-            tester().waitForCell(at: IndexPath(row: 0, section: 0), in: tableView)
-            sleep(5)
-            FBSnapshotVerifyView(tableView)
+    func testViewControllerFlow() {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController, let rootView = viewController.view else {
+            XCTFail("ViewController not found")
+            return
         }
+        
+        guard let tableView = tester().waitForView(withAccessibilityIdentifier: "tableView") as? UITableView else {
+            XCTFail("TableView not found")
+            return
+        }
+        
+        tester().waitForView(withAccessibilityIdentifier: "ScreenLoadingView")
+        
+        FBSnapshotVerifyView(rootView, identifier: "first_loading")
+        tester().waitForCell(at: IndexPath(row: 0, section: 0), in: tableView)
+        FBSnapshotVerifyView(rootView, identifier: "first_page")
+
+        tester().pullToRefreshView(withAccessibilityIdentifier: "tableView", pullDownDuration: .inAboutAHalfSecond)
+        
+        tester().waitForAnimationsToFinish()
+        
+        FBSnapshotVerifyView(rootView, identifier: "pull_to_refresh")
+        
+        tableView.scrollToLastRow(inSection: 0, animated: false)
+        tester().swipeView(withAccessibilityIdentifier: "tableView", in: .up)
+        
+        tester().waitForAnimationsToFinish()
+        tester().waitForView(withAccessibilityIdentifier: "LoadingView")
+
+        FBSnapshotVerifyView(rootView, identifier: "infinity_loading")
+        
+        tester().waitForAbsenceOfView(withAccessibilityIdentifier: "LoadingView")
+        tableView.scrollToLastRow(inSection: 0, animated: false)
+        
+        FBSnapshotVerifyView(rootView, identifier: "second_page", overallTolerance: 0.001)
     }
     
 }

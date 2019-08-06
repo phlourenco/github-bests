@@ -31,7 +31,7 @@ class RepositoryListViewController: UIViewController {
             tableView.tableFooterView = UIView()
 //            tableView.refreshControl = refreshControl
             tableView.addSubview(refreshControl)
-            tableView.accessibilityLabel = "tableView"
+            tableView.accessibilityIdentifier = "tableView"
         }
     }
     
@@ -48,11 +48,6 @@ class RepositoryListViewController: UIViewController {
     var interactor: RepositoryListBusinessLogic?
     
     // MARK: Object lifecycle
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -78,15 +73,14 @@ class RepositoryListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        interactor?.fetchRepositories(next: false)
+        interactor?.fetchRepositories(next: false, showLoading: true)
     }
     
     // MARK: View lifecycle
     
     @objc
     private func pullToRefreshAction() {
-//        tableView.reloadData()
-        interactor?.fetchRepositories(next: false)
+        interactor?.fetchRepositories(next: false, showLoading: false)
     }
 }
 

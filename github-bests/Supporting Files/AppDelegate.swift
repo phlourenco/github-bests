@@ -14,56 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-//    private func stubRequestsIfNeeded() {
-//        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
-//            print("TESTANDOOOOOOOOW")
-//            stub(condition: { (request) -> Bool in
-//                if let url = request.url?.absoluteString, url.contains("github.com"), url.contains("&page=1") {
-//                    return true
-//                }
-//                return false
-//            }) { (request) -> OHHTTPStubsResponse in
-////                let stubPath = OHPathForFile("Mocks/page1.json", type(of: self))
-////                return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
-//                return OHHTTPStubsResponse(data: Data(), statusCode: 404, headers: nil)
-//            }
-//        }
-//    }
-    
-    private func stubAPICallsIfNeeded() {
-        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
-            stub(condition: { (request) -> Bool in
-                if let url = request.url?.absoluteString {
-                    if url.contains("github.com"), url.contains("?page=1") {
-                        return true
-                    }
-                    if url.contains("google-novo-logo.jpg") {
-                        return true
-                    }
-                }
-                return false
-            }) { (request) -> OHHTTPStubsResponse in
-                let repositories = SearchAPIMock().generateRepositories(count: 20)
-                let results = SearchResults<[Repository]>(totalCount: repositories.count, incompleteResults: false, items: repositories)
-
-                if let url = request.url?.absoluteString {
-                    if url.contains("github.com") {
-                        return OHHTTPStubsResponse(data: results.toData() ?? Data(), statusCode: 200, headers: nil)
-                    } else if url.contains("google-novo-logo") {
-                        let img = #imageLiteral(resourceName: "background")
-                        return OHHTTPStubsResponse(data: img.pngData() ?? Data(), statusCode: 200, headers: nil)
-                    }
-                }
-                return OHHTTPStubsResponse(data: Data(), statusCode: 404, headers: nil)
-            }
-        }
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            StubManager.shared.stubRequests(withDelay: 3.0)
+//        }
         
-//        stubRequestsIfNeeded()
-
-        stubAPICallsIfNeeded()
         return true
     }
 

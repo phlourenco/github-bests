@@ -13,7 +13,7 @@
 import UIKit
 
 protocol RepositoryListBusinessLogic {
-    func fetchRepositories(next: Bool)
+    func fetchRepositories(next: Bool, showLoading: Bool)
     func fetchMore(indexPath: IndexPath)
     var repositoryList: [Repository] { get set }
 }
@@ -38,11 +38,13 @@ class RepositoryListInteractor: RepositoryListBusinessLogic {
     
     // MARK: - Public methods
     
-    func fetchRepositories(next: Bool) {
+    func fetchRepositories(next: Bool, showLoading: Bool) {
         let page = next ? getNextPageNumber() : 1
     
         let isScreenLoading = !next
-        presenter?.presentLoading(screen: isScreenLoading)
+        if showLoading {
+            presenter?.presentLoading(screen: isScreenLoading)
+        }
         
         let request = RepositoryList.Request(query: "language:swift", sort: "stars", page: page, itemsPerPage: itemsPerPage)
         worker.getRepositories(request: request)
@@ -60,7 +62,7 @@ class RepositoryListInteractor: RepositoryListBusinessLogic {
     
     func fetchMore(indexPath: IndexPath) {
         if indexPath.row == repositoryList.count-1 {
-            fetchRepositories(next: true)
+            fetchRepositories(next: true, showLoading: true)
         }
     }
     

@@ -7,15 +7,14 @@
 //
 
 import Foundation
-@testable import github_bests
-@testable import PromiseKit
+import PromiseKit
 
 class SearchAPIMock: SearchAPIDataSource {
     
-    func generateRepositories(count: Int) -> [Repository] {
+    func generateRepositories(count: Int, startWith startNumber: Int = 0) -> [Repository] {
         var repositories = [Repository]()
         for i in 0..<count {
-            repositories.append(Repository(name: "Repositório #\(i)", stargazersCount: 99999, owner: Owner(login: "fulano", avatarUrl: "https://assets.b9.com.br/wp-content/uploads/2014/05/google-novo-logo.jpg")))
+            repositories.append(Repository(name: "Repositório #\(startNumber+i)", stargazersCount: 99999, owner: Owner(login: "fulano", avatarUrl: "http://localhost/")))
         }
         return repositories
     }

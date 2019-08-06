@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListInteractor.swift at 2019-08-05 16:32:46 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListInteractor.swift at 2019-08-06 01:21:34 +0000
 
 //
 //  RepositoryListInteractor.swift
@@ -66,16 +66,16 @@ import UIKit
     
     
     
-     func fetchRepositories(next: Bool)  {
+     func fetchRepositories(next: Bool, showLoading: Bool)  {
         
-    return cuckoo_manager.call("fetchRepositories(next: Bool)",
-            parameters: (next),
-            escapingParameters: (next),
+    return cuckoo_manager.call("fetchRepositories(next: Bool, showLoading: Bool)",
+            parameters: (next, showLoading),
+            escapingParameters: (next, showLoading),
             superclassCall:
                 
                 Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                 ,
-            defaultCall: __defaultImplStub!.fetchRepositories(next: next))
+            defaultCall: __defaultImplStub!.fetchRepositories(next: next, showLoading: showLoading))
         
     }
     
@@ -108,9 +108,9 @@ import UIKit
 	    }
 	    
 	    
-	    func fetchRepositories<M1: Cuckoo.Matchable>(next: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(Bool)> where M1.MatchedType == Bool {
-	        let matchers: [Cuckoo.ParameterMatcher<(Bool)>] = [wrap(matchable: next) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListBusinessLogic.self, method: "fetchRepositories(next: Bool)", parameterMatchers: matchers))
+	    func fetchRepositories<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(next: M1, showLoading: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(Bool, Bool)> where M1.MatchedType == Bool, M2.MatchedType == Bool {
+	        let matchers: [Cuckoo.ParameterMatcher<(Bool, Bool)>] = [wrap(matchable: next) { $0.0 }, wrap(matchable: showLoading) { $0.1 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListBusinessLogic.self, method: "fetchRepositories(next: Bool, showLoading: Bool)", parameterMatchers: matchers))
 	    }
 	    
 	    func fetchMore<M1: Cuckoo.Matchable>(indexPath: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(IndexPath)> where M1.MatchedType == IndexPath {
@@ -140,9 +140,9 @@ import UIKit
 	
 	    
 	    @discardableResult
-	    func fetchRepositories<M1: Cuckoo.Matchable>(next: M1) -> Cuckoo.__DoNotUse<(Bool), Void> where M1.MatchedType == Bool {
-	        let matchers: [Cuckoo.ParameterMatcher<(Bool)>] = [wrap(matchable: next) { $0 }]
-	        return cuckoo_manager.verify("fetchRepositories(next: Bool)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    func fetchRepositories<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(next: M1, showLoading: M2) -> Cuckoo.__DoNotUse<(Bool, Bool), Void> where M1.MatchedType == Bool, M2.MatchedType == Bool {
+	        let matchers: [Cuckoo.ParameterMatcher<(Bool, Bool)>] = [wrap(matchable: next) { $0.0 }, wrap(matchable: showLoading) { $0.1 }]
+	        return cuckoo_manager.verify("fetchRepositories(next: Bool, showLoading: Bool)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
 	    @discardableResult
@@ -170,7 +170,7 @@ import UIKit
     
 
     
-     func fetchRepositories(next: Bool)   {
+     func fetchRepositories(next: Bool, showLoading: Bool)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -279,16 +279,16 @@ import UIKit
     
     
     
-     override func fetchRepositories(next: Bool)  {
+     override func fetchRepositories(next: Bool, showLoading: Bool)  {
         
-    return cuckoo_manager.call("fetchRepositories(next: Bool)",
-            parameters: (next),
-            escapingParameters: (next),
+    return cuckoo_manager.call("fetchRepositories(next: Bool, showLoading: Bool)",
+            parameters: (next, showLoading),
+            escapingParameters: (next, showLoading),
             superclassCall:
                 
-                super.fetchRepositories(next: next)
+                super.fetchRepositories(next: next, showLoading: showLoading)
                 ,
-            defaultCall: __defaultImplStub!.fetchRepositories(next: next))
+            defaultCall: __defaultImplStub!.fetchRepositories(next: next, showLoading: showLoading))
         
     }
     
@@ -331,9 +331,9 @@ import UIKit
 	    }
 	    
 	    
-	    func fetchRepositories<M1: Cuckoo.Matchable>(next: M1) -> Cuckoo.ClassStubNoReturnFunction<(Bool)> where M1.MatchedType == Bool {
-	        let matchers: [Cuckoo.ParameterMatcher<(Bool)>] = [wrap(matchable: next) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListInteractor.self, method: "fetchRepositories(next: Bool)", parameterMatchers: matchers))
+	    func fetchRepositories<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(next: M1, showLoading: M2) -> Cuckoo.ClassStubNoReturnFunction<(Bool, Bool)> where M1.MatchedType == Bool, M2.MatchedType == Bool {
+	        let matchers: [Cuckoo.ParameterMatcher<(Bool, Bool)>] = [wrap(matchable: next) { $0.0 }, wrap(matchable: showLoading) { $0.1 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockRepositoryListInteractor.self, method: "fetchRepositories(next: Bool, showLoading: Bool)", parameterMatchers: matchers))
 	    }
 	    
 	    func fetchMore<M1: Cuckoo.Matchable>(indexPath: M1) -> Cuckoo.ClassStubNoReturnFunction<(IndexPath)> where M1.MatchedType == IndexPath {
@@ -373,9 +373,9 @@ import UIKit
 	
 	    
 	    @discardableResult
-	    func fetchRepositories<M1: Cuckoo.Matchable>(next: M1) -> Cuckoo.__DoNotUse<(Bool), Void> where M1.MatchedType == Bool {
-	        let matchers: [Cuckoo.ParameterMatcher<(Bool)>] = [wrap(matchable: next) { $0 }]
-	        return cuckoo_manager.verify("fetchRepositories(next: Bool)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    func fetchRepositories<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(next: M1, showLoading: M2) -> Cuckoo.__DoNotUse<(Bool, Bool), Void> where M1.MatchedType == Bool, M2.MatchedType == Bool {
+	        let matchers: [Cuckoo.ParameterMatcher<(Bool, Bool)>] = [wrap(matchable: next) { $0.0 }, wrap(matchable: showLoading) { $0.1 }]
+	        return cuckoo_manager.verify("fetchRepositories(next: Bool, showLoading: Bool)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
 	    @discardableResult
@@ -423,7 +423,7 @@ import UIKit
     
 
     
-     override func fetchRepositories(next: Bool)   {
+     override func fetchRepositories(next: Bool, showLoading: Bool)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -434,7 +434,7 @@ import UIKit
 }
 
 
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListPresenter.swift at 2019-08-05 16:32:46 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListPresenter.swift at 2019-08-06 01:21:34 +0000
 
 //
 //  RepositoryListPresenter.swift
@@ -858,7 +858,7 @@ import UIKit
 }
 
 
-// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListWorker.swift at 2019-08-05 16:32:46 +0000
+// MARK: - Mocks generated from file: github-bests/Scenes/List/RepositoryListWorker.swift at 2019-08-06 01:21:34 +0000
 
 //
 //  RepositoryListWorker.swift

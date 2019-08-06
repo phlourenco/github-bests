@@ -26,6 +26,7 @@ extension BaseDisplayLogic where Self: UIViewController {
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         backgroundView.restorationIdentifier = "backgroundView"
+        backgroundView.accessibilityIdentifier = "ScreenLoadingView"
         view.addSubview(backgroundView)
         backgroundView.frame = view.frame
         

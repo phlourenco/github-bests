@@ -39,7 +39,7 @@ class RepositoryListInteractorTests: QuickSpec {
                 let sut = RepositoryListInteractor()
                 sut.worker = mockedWorker
                 sut.presenter = mockedPresenter
-                sut.fetchRepositories(next: false)
+                sut.fetchRepositories(next: false, showLoading: true)
 
                 it("O método presentList deve ser chamado uma vez", closure: {
                     verify(mockedPresenter, times(1)).presentList()
@@ -112,7 +112,7 @@ class RepositoryListInteractorTests: QuickSpec {
                 let sut = RepositoryListInteractor()
                 sut.worker = mockedWorker
                 sut.presenter = mockedPresenter
-                sut.fetchRepositories(next: false)
+                sut.fetchRepositories(next: false, showLoading: true)
 
                 it("O método presentList não deve ser chamado nenhuma vez", closure: {
                     verify(mockedPresenter, never()).presentList()

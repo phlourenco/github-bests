@@ -9,6 +9,8 @@ PODS:
   - KIF (3.7.8):
     - KIF/Core (= 3.7.8)
   - KIF/Core (3.7.8)
+  - KIF/IdentifierTests (3.7.8):
+    - KIF/Core
   - Nimble (8.0.2)
   - OHHTTPStubs/Core (8.0.0)
   - OHHTTPStubs/Default (8.0.0):
@@ -42,6 +44,7 @@ DEPENDENCIES:
   - Cuckoo
   - iOSSnapshotTestCase
   - KIF
+  - KIF/IdentifierTests
   - Nimble
   - OHHTTPStubs/Swift
   - PromiseKit
@@ -71,6 +74,6 @@ SPEC CHECKSUMS:
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: 66558945963ba670aa8e705cffe6370a1579a229
+PODFILE CHECKSUM: fde07500ee8602884730cea7fee89c8deefb3f60
 
 COCOAPODS: 1.7.5

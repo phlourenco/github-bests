@@ -53,7 +53,7 @@ class RepositoryCell: UITableViewCell {
         starsLabel.text = "\(repository.stargazersCount) stars"
         authorNameLabel.text = repository.owner.login
         if let avatarUrl = URL(string: repository.owner.avatarUrl) {
-            authorImageView.sd_setImage(with: avatarUrl, completed: nil)
+            authorImageView.sd_setImage(with: avatarUrl, placeholderImage: UIImage(named: "github_logo_placeholder"))
         }
     }
     
