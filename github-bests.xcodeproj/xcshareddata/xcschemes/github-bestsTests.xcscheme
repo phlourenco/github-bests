@@ -34,6 +34,15 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4BF88E7222F44D13002523A8"
+            BuildableName = "github-bestsTests.xctest"
+            BlueprintName = "github-bestsTests"
+            ReferencedContainer = "container:github-bests.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "FB_REFERENCE_IMAGE_DIR"
