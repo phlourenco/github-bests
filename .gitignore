@@ -167,3 +167,5 @@ Dependencies/
 
 # End of https://www.gitignore.io/api/xcode,swift,macos,fastlane,cocoapods,objective-c,swiftpackagemanager
 github-bestsTests/FailureDiffs
+fastlane/html
+fastlane/README.md

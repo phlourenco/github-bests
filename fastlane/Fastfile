@@ -19,6 +19,12 @@ platform :ios do
   desc "Gera relatório de code covarage do projeto"
   lane :custom_lane do
 
+        scan(
+          workspace: "github-bests.xcworkspace",
+          devices: ["iPhone 8"],
+          scheme: "github-bests"
+        )
+
         slather(
             proj: "github-bests.xcodeproj",
             workspace: "github-bests.xcworkspace",
