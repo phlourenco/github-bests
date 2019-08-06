@@ -37,7 +37,7 @@ class RepositoryListViewControllerTests: FBSnapshotTestCase {
         //Verifica tela toda, com o loading do pull-to-refresh carregando
         tester().pullToRefreshView(withAccessibilityIdentifier: "tableView", pullDownDuration: .inAboutAHalfSecond)
         tester().waitForAnimationsToFinish()
-        FBSnapshotVerifyView(rootView, identifier: "pull_to_refresh")
+        FBSnapshotVerifyView(rootView, identifier: "pull_to_refresh", overallTolerance: 0.001)
         
         //Verifica view do loading infinito
         tableView.scrollToLastRow(inSection: 0, animated: false)
